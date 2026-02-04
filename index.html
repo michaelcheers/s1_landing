@@ -204,12 +204,6 @@
             font-weight: 600;
         }
 
-        .video-caption {
-            text-align: center;
-            color: var(--color-text-secondary);
-            font-size: 15px;
-        }
-
         /* Stats */
         .hero-stats {
             display: flex;
@@ -245,6 +239,7 @@
             background: white;
             padding: 30px 24px;
             border-bottom: 1px solid #e0e0e0;
+            margin-top: -50px;
         }
 
         .section-title {
@@ -1149,7 +1144,6 @@
                     <div class="play-button">▶</div>
                     <div class="video-label">See How We Drive Results</div>
                 </div>
-                <p class="video-caption">Watch how we helped a local business go from 12 leads/month to 87 in just 90 days</p>
             </div>
         </div>
     </section>
@@ -1189,19 +1183,20 @@
     </section>
 
     <!-- Stats Bar -->
-    <section style="background: white; padding: 40px 24px; border-bottom: 1px solid #e0e0e0;">
+    <section style="background: linear-gradient(135deg, #0a0a0a, #1a1a1a); padding: 60px 24px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--color-green), var(--color-green-dark));"></div>
         <div class="hero-stats">
             <div class="stat-item">
                 <div class="stat-number">500+</div>
-                <div class="stat-label">Businesses</div>
+                <div class="stat-label" style="color: rgba(255,255,255,0.5);">Businesses Served</div>
             </div>
-            <div class="stat-item">
+            <div class="stat-item" style="border-left: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1); padding: 0 80px;">
                 <div class="stat-number">$10M+</div>
-                <div class="stat-label">Ad Spend</div>
+                <div class="stat-label" style="color: rgba(255,255,255,0.5);">Ad Spend Managed</div>
             </div>
             <div class="stat-item">
                 <div class="stat-number">98%</div>
-                <div class="stat-label">Retention</div>
+                <div class="stat-label" style="color: rgba(255,255,255,0.5);">Client Retention</div>
             </div>
         </div>
     </section>
