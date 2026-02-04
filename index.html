@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service 1 - Turn Clicks Into Customers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-green: #30d158;
+            --color-green-dark: #28a745;
+            --color-text: #1d1d1f;
+            --color-text-secondary: #6e6e73;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            color: var(--color-text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 32px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .cta-btn {
+            background: var(--color-green);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: var(--color-green-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 110px 24px 30px;
+            background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+        }
+
+        .hero h1 {
+            font-size: clamp(56px, 7vw, 80px);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 3vw, 24px);
+            color: var(--color-text-secondary);
+            margin-bottom: 24px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Service Pills */
+        .service-pills {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 24px 0;
+        }
+
+        .service-pill {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border: 2px solid #0EA5E9;
+            padding: 10px 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-pill.seo {
+            background: linear-gradient(135deg, #fef3f2, #fee2e2);
+            border-color: #EF4444;
+        }
+
+        .service-pill.web {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-color: var(--color-green);
+        }
+
+        .pill-check {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .pill-check.blue { background: #0EA5E9; }
+        .pill-check.red { background: #EF4444; }
+        .pill-check.green { background: var(--color-green); }
+
+        .pill-text {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .pill-text.blue { color: #0369a1; }
+        .pill-text.red { color: #991b1b; }
+        .pill-text.green { color: #166534; }
+
+        /* Video Section */
+        .video-section {
+            margin: 24px 0 48px;
+        }
+
+        .video-placeholder {
+            max-width: 700px;
+            margin: 0 auto 16px;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: var(--color-green);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            transition: all 0.3s;
+        }
+
+        .play-button:hover {
+            background: var(--color-green-dark);
+            transform: scale(1.1);
+        }
+
+        .video-label {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .video-caption {
+            text-align: center;
+            color: var(--color-text-secondary);
+            font-size: 15px;
+        }
+
+        /* Stats */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-top: 0;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Trust Badges - Compact Partner Bar */
+        .trust-section {
+            background: white;
+            padding: 30px 24px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .section-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        .badges-grid {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .badge-item {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0;
+            background: white;
+            border: 1px solid #e0e0e0;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .badge-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+        }
+
+        /* Logo Section */
+        .logo-section {
+            background: white;
+            padding: 60px 24px;
+        }
+
+        .logo-grid {
+            max-width: 1000px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+        }
+
+        .logo-item {
+            background: white;
+            padding: 32px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 18px;
+            color: #999999;
+            border: 1px solid #e0e0e0;
+            position: relative;
+            transition: all 0.3s;
+            opacity: 0.5;
+        }
+
+        .logo-item::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 6px;
+            height: 6px;
+            background: #cccccc;
+        }
+
+        .logo-item:hover {
+            opacity: 1;
+            color: var(--color-text);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Service Sections */
+        .service-section {
+            background: #000;
+            color: white;
+            padding: 60px 24px;
+        }
+
+        .service-section:nth-child(even) {
+            background: #fafafa;
+            color: var(--color-text);
+        }
+
+        .service-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .service-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-green);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .service-title {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .service-subtitle {
+            font-size: clamp(24px, 3vw, 32px);
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .service-section:nth-child(even) .service-subtitle {
+            color: var(--color-text-secondary);
+        }
+
+        .service-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .service-section:nth-child(even) .service-description {
+            color: var(--color-text-secondary);
+        }
+
+        /* Mockups */
+        .mockup {
+            background: white;
+            border: 1px solid #e0e0e0;
+            padding: 16px;
+            max-width: 500px;
+        }
+
+        .ad-tag {
+            background: var(--color-green);
+            color: white;
+            padding: 4px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .ad-url {
+            color: var(--color-green-dark);
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .ad-title {
+            color: #1a0dab;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .ad-description {
+            color: #4d5156;
+            font-size: 13px;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+
+        .ad-callouts {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .ad-callout {
+            font-size: 12px;
+            color: #4d5156;
+        }
+
+        .ad-callout::before {
+            content: '✓ ';
+            color: var(--color-green);
+            font-weight: bold;
+        }
+
+        /* Browser Mockup */
+        .browser-mockup {
+            background: white;
+            overflow: hidden;
+            max-width: 500px;
+        }
+
+        .browser-header {
+            background: #e8e8e8;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .browser-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .browser-dot {
+            width: 12px;
+            height: 12px;
+        }
+
+        .browser-dot:nth-child(1) { background: #ff5f56; }
+        .browser-dot:nth-child(2) { background: #ffbd2e; }
+        .browser-dot:nth-child(3) { background: #27c93f; }
+
+        .browser-url {
+            flex: 1;
+            background: white;
+            padding: 6px 12px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .browser-content {
+            padding: 24px;
+        }
+
+        .website-preview {
+            background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
+            color: white;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .website-preview h3 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .website-preview p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .website-cta {
+            background: white;
+            color: var(--color-green-dark);
+            padding: 12px 32px;
+            display: inline-block;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .website-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            font-size: 13px;
+        }
+
+        .website-feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+        }
+
+        /* SEO Dashboard */
+        .seo-dashboard {
+            background: white;
+            padding: 24px;
+        }
+
+        .seo-metric {
+            margin-bottom: 24px;
+        }
+
+        .seo-label {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .seo-number {
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--color-green);
+            margin-bottom: 12px;
+        }
+
+        .seo-bar {
+            background: #f0f0f0;
+            height: 8px;
+        }
+
+        .seo-bar-fill {
+            background: linear-gradient(90deg, var(--color-green), var(--color-green-dark));
+            height: 100%;
+            width: 95%;
+        }
+
+        .seo-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            height: 100px;
+            margin-top: 16px;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(180deg, var(--color-green), var(--color-green-dark));
+        }
+
+        .chart-bar:nth-child(1) { height: 40%; }
+        .chart-bar:nth-child(2) { height: 55%; }
+        .chart-bar:nth-child(3) { height: 70%; }
+        .chart-bar:nth-child(4) { height: 85%; }
+        .chart-bar:nth-child(5) { height: 100%; }
+
+        /* Founder Section */
+        .founder-section {
+            background: white;
+            color: var(--color-text);
+            padding: 80px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .founder-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(48, 209, 88, 0.08) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .founder-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .founder-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .founder-icon-wrapper {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 32px;
+            background: white;
+            border: 3px solid var(--color-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(48, 209, 88, 0.15);
+        }
+
+        .founder-icon-wrapper svg {
+            width: 60px;
+            height: 60px;
+            color: var(--color-green);
+        }
+
+        .founder-section h2 {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--color-text);
+        }
+
+        .founder-section h3 {
+            font-size: 24px;
+            color: var(--color-green);
+            margin-bottom: 48px;
+        }
+
+        .founder-story {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .founder-story p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--color-text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .founder-story p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .founder-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            margin-top: 60px;
+            padding-top: 60px;
+            border-top: 2px solid rgba(48, 209, 88, 0.2);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .founder-stat {
+            text-align: center;
+        }
+
+        .founder-stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .founder-stat-label {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Process Section */
+        .process-section {
+            background: white;
+            padding: 80px 24px;
+        }
+
+        .process-title {
+            font-size: clamp(40px, 5vw, 64px);
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .process-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .process-item {
+            background: linear-gradient(135deg, #ffffff, #fafafa);
+            padding: 48px 32px;
+            border: 2px solid rgba(48, 209, 88, 0.2);
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .process-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-green), var(--color-green-dark));
+        }
+
+        .process-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(48, 209, 88, 0.2);
+        }
+
+        .process-number {
+            font-size: 64px;
+            font-weight: 600;
+            color: var(--color-green);
+            opacity: 0.3;
+            margin-bottom: 16px;
+        }
+
+        .process-item h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .process-item p {
+            font-size: 17px;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Timeline */
+        .timeline-section {
+            background: #fafafa;
+            padding: 80px 24px;
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 60px auto 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 32px;
+            margin-bottom: 48px;
+            align-items: flex-start;
+        }
+
+        .timeline-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 16px rgba(48, 209, 88, 0.3);
+        }
+
+        .timeline-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 32px;
+            border: 2px solid rgba(48, 209, 88, 0.2);
+        }
+
+        .timeline-week {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-green);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .timeline-content h4 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .timeline-content p {
+            font-size: 16px;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Values */
+        .values-section {
+            background: #f5f5f7;
+            padding: 80px 24px;
+        }
+
+        .values-grid {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+        }
+
+        .value-item {
+            background: white;
+            padding: 40px 32px;
+            border: 2px solid rgba(48, 209, 88, 0.2);
+            transition: all 0.3s;
+        }
+
+        .value-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(48, 209, 88, 0.15);
+        }
+
+        .value-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .value-item h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .value-item p {
+            font-size: 17px;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            padding: 100px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(48, 209, 88, 0.15), transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(48, 209, 88, 0.1), transparent 50%);
+            z-index: 0;
+        }
+
+        .testimonials-section .process-title {
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 32px;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--color-green);
+            box-shadow: 0 20px 60px rgba(48, 209, 88, 0.2);
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--color-green), var(--color-green-dark));
+            transform: scaleY(0);
+            transition: transform 0.4s ease;
+        }
+
+        .testimonial-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .testimonial-author {
+            flex: 1;
+        }
+
+        .testimonial-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .testimonial-company {
+            font-size: 14px;
+            color: var(--color-green);
+            margin-bottom: 4px;
+        }
+
+        .testimonial-role {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .stars {
+            color: #ffd700;
+            font-size: 18px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 16px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testimonial-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Featured Testimonial */
+        .featured-testimonial {
+            grid-column: 1 / -1;
+            background: rgba(48, 209, 88, 0.1);
+            border: 2px solid var(--color-green);
+            padding: 48px 40px;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: var(--color-green);
+            color: white;
+            padding: 6px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .featured-testimonial blockquote {
+            font-size: 24px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .featured-testimonial .testimonial-metrics {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #000;
+            color: white;
+            padding: 100px 24px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(64px, 10vw, 120px);
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
+
+        .cta-section p {
+            font-size: 21px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 48px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1d1d1f;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 80px 24px 40px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-column p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .service-content { grid-template-columns: 1fr; }
+            .founder-stats { grid-template-columns: 1fr; gap: 32px; }
+            .timeline-item { grid-template-columns: 1fr; }
+            .timeline-icon { margin: 0 auto; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .website-features { grid-template-columns: 1fr; }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-testimonial .testimonial-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="/mnt/user-data/uploads/Group_1000001945.png" alt="Service 1">
+            </a>
+            <div class="nav-menu">
+                <a href="#services">Services</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#about">About</a>
+                <a href="#contact" class="cta-btn">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div style="max-width: 900px;">
+            <h1>Growth.<br>Engineered.</h1>
+            <p class="hero-subtitle">We help home service businesses dominate their market with Google Ads, SEO, and conversion-focused websites.</p>
+            
+            <!-- Service Pills -->
+            <div class="service-pills">
+                <div class="service-pill">
+                    <div class="pill-check blue">✓</div>
+                    <span class="pill-text blue">Paid Ads</span>
+                </div>
+                <div class="service-pill seo">
+                    <div class="pill-check red">✓</div>
+                    <span class="pill-text red">SEO</span>
+                </div>
+                <div class="service-pill web">
+                    <div class="pill-check green">✓</div>
+                    <span class="pill-text green">Web Design</span>
+                </div>
+            </div>
+            
+            <a href="#contact" class="cta-btn">Book a Strategy Call</a>
+            
+            <!-- Video Section -->
+            <div class="video-section">
+                <div class="video-placeholder">
+                    <div class="play-button">▶</div>
+                    <div class="video-label">See How We Drive Results</div>
+                </div>
+                <p class="video-caption">Watch how we helped a local business go from 12 leads/month to 87 in just 90 days</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section style="background: white; padding: 40px 24px; border-bottom: 1px solid #e0e0e0;">
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Businesses</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">$10M+</div>
+                <div class="stat-label">Ad Spend</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Retention</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-section">
+        <div class="section-title" style="text-align: center;">OFFICIAL PARTNERS</div>
+        <div class="badges-grid">
+            <div class="badge-item">
+                <div class="badge-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
+                </div>
+                <div class="badge-label">Google Partner</div>
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="#0668E1">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </div>
+                <div class="badge-label">Meta Partner</div>
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="#00A4EF">
+                        <path d="M0 0h11.377v11.372H0zm12.623 0H24v11.372H12.623zM0 12.623h11.377V24H0zm12.623 0H24V24H12.623"/>
+                    </svg>
+                </div>
+                <div class="badge-label">Microsoft Ads</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Section -->
+    <section class="logo-section">
+        <div class="section-title" style="text-align: center;">TRUSTED BY INDUSTRY LEADERS</div>
+        <div class="logo-grid">
+            <div class="logo-item">HomeAdvisor</div>
+            <div class="logo-item">Angi</div>
+            <div class="logo-item">Thumbtack</div>
+            <div class="logo-item">Yelp</div>
+        </div>
+    </section>
+
+    <!-- Paid Ads Section -->
+    <section class="service-section" id="services">
+        <div class="service-content">
+            <div>
+                <div class="service-label">Paid Ads</div>
+                <h2 class="service-title">Precision targeting.</h2>
+                <p class="service-subtitle">Measurable returns.</p>
+                <p class="service-description">Every dollar tracked. Every lead qualified. Every campaign optimized in real-time. We target homeowners at the exact moment they need you.</p>
+            </div>
+            <div>
+                <div class="mockup">
+                    <div class="ad-tag">Sponsored</div>
+                    <div class="ad-url">www.elitehomeservices.com</div>
+                    <div class="ad-title">Elite Home Services | Same Day Service Available</div>
+                    <div class="ad-description">Licensed & insured technicians. 24/7 emergency service. Free estimates on all installations. Serving your area for 15+ years.</div>
+                    <div class="ad-callouts">
+                        <div class="ad-callout">Same Day Service</div>
+                        <div class="ad-callout">Free Estimates</div>
+                        <div class="ad-callout">5-Star Rated</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Websites Section -->
+    <section class="service-section">
+        <div class="service-content">
+            <div>
+                <div class="browser-mockup">
+                    <div class="browser-header">
+                        <div class="browser-dots">
+                            <div class="browser-dot"></div>
+                            <div class="browser-dot"></div>
+                            <div class="browser-dot"></div>
+                        </div>
+                        <div class="browser-url">yourbusiness.com</div>
+                    </div>
+                    <div class="browser-content">
+                        <div class="website-preview">
+                            <h3>Premium Home Services</h3>
+                            <p>Fast, Reliable Service in Your Area</p>
+                            <div class="website-cta">Book Service Now</div>
+                            <div class="website-features">
+                                <div class="website-feature">⚡ 24/7</div>
+                                <div class="website-feature">✓ Licensed</div>
+                                <div class="website-feature">⭐ Top Rated</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="service-label">Websites</div>
+                <h2 class="service-title">Designed to convert.</h2>
+                <p class="service-subtitle">Built to perform.</p>
+                <p class="service-description">Every pixel serves a purpose. Every interaction drives action. We craft websites using conversion data from millions in ad spend.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Section -->
+    <section class="service-section">
+        <div class="service-content">
+            <div>
+                <div class="service-label">SEO</div>
+                <h2 class="service-title">Invisible to you.</h2>
+                <p class="service-subtitle">Unmissable to customers.</p>
+                <p class="service-description">When homeowners search, you appear. First. Every time. Our SEO doesn't just improve rankings. It dominates local markets.</p>
+            </div>
+            <div>
+                <div class="browser-mockup" style="max-width: 600px;">
+                    <div class="browser-header">
+                        <div class="browser-dots">
+                            <div class="browser-dot"></div>
+                            <div class="browser-dot"></div>
+                            <div class="browser-dot"></div>
+                        </div>
+                        <div class="browser-url">analytics.google.com</div>
+                    </div>
+                    <div class="browser-content">
+                        <div class="seo-dashboard">
+                            <div class="seo-metric">
+                                <div class="seo-label">Google Ranking Position</div>
+                                <div class="seo-number">#1.2</div>
+                                <div class="seo-bar">
+                                    <div class="seo-bar-fill"></div>
+                                </div>
+                            </div>
+                            <div class="seo-metric">
+                                <div class="seo-label">Organic Traffic Growth</div>
+                                <div class="seo-chart">
+                                    <div class="chart-bar"></div>
+                                    <div class="chart-bar"></div>
+                                    <div class="chart-bar"></div>
+                                    <div class="chart-bar"></div>
+                                    <div class="chart-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <h2 class="process-title">Trusted By Industry Leaders</h2>
+        <div class="testimonials-grid">
+            <!-- Featured Testimonial -->
+            <div class="testimonial-card featured-testimonial">
+                <div class="featured-badge">Featured Success Story</div>
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">MC</div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">Mike Chen</div>
+                        <div class="testimonial-company">Precision HVAC Services</div>
+                        <div class="testimonial-role">Owner & Founder</div>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <blockquote>"We went from spending $15K/month on ads with minimal results to generating 200+ qualified leads monthly. Service 1 completely transformed our business. Their system is the real deal."</blockquote>
+                <div class="testimonial-metrics">
+                    <div class="metric">
+                        <div class="metric-value">200+</div>
+                        <div class="metric-label">Leads/Month</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">580%</div>
+                        <div class="metric-label">ROI</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">6 Mo</div>
+                        <div class="metric-label">Partnership</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regular Testimonial 1 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">SR</div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">Sarah Rodriguez</div>
+                        <div class="testimonial-company">Elite Moving Company</div>
+                        <div class="testimonial-role">Marketing Director</div>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <blockquote>"Finally, a marketing agency that actually understands home services. They don't just run ads—they build systems that scale. Our booking rate doubled in 90 days."</blockquote>
+                <div class="testimonial-metrics">
+                    <div class="metric">
+                        <div class="metric-value">145</div>
+                        <div class="metric-label">Leads/Month</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">2.1x</div>
+                        <div class="metric-label">Booking Rate</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regular Testimonial 2 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">JT</div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">James Thompson</div>
+                        <div class="testimonial-company">ProPlumb Solutions</div>
+                        <div class="testimonial-role">CEO</div>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <blockquote>"We tried three agencies before Service 1. They're the only ones who delivered. Clear reporting, transparent pricing, and most importantly—results we can measure."</blockquote>
+                <div class="testimonial-metrics">
+                    <div class="metric">
+                        <div class="metric-value">$180K</div>
+                        <div class="metric-label">Monthly Revenue</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">425%</div>
+                        <div class="metric-label">ROI</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regular Testimonial 3 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">LM</div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">Lisa Martinez</div>
+                        <div class="testimonial-company">Clean Sweep Services</div>
+                        <div class="testimonial-role">Owner</div>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <blockquote>"Best investment we've made in our business. The Slack communication is instant, the monthly calls are valuable, and the leads keep coming. Worth every penny."</blockquote>
+                <div class="testimonial-metrics">
+                    <div class="metric">
+                        <div class="metric-value">87</div>
+                        <div class="metric-label">Leads/Month</div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Regular Testimonial 4 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">DK</div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">David Kim</div>
+                        <div class="testimonial-company">24/7 Emergency Plumbing</div>
+                        <div class="testimonial-role">Operations Manager</div>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <blockquote>"Their Google Ads strategy is light years ahead of what we were doing. We're now dominating our local market and our competitors are scrambling to catch up."</blockquote>
+                <div class="testimonial-metrics">
+                    <div class="metric">
+                        <div class="metric-value">#1</div>
+                        <div class="metric-label">Local Rank</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">320%</div>
+                        <div class="metric-label">Growth</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regular Testimonial 5 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">AJ</div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">Amanda Johnson</div>
+                        <div class="testimonial-company">Royal Roofing Co.</div>
+                        <div class="testimonial-role">Marketing Lead</div>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <blockquote>"We were drowning in bad leads from our previous agency. Service 1 fixed our targeting and now every call is from a homeowner ready to book. Game changer."</blockquote>
+                <div class="testimonial-metrics">
+                    <div class="metric">
+                        <div class="metric-value">92%</div>
+                        <div class="metric-label">Quality Rate</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">156</div>
+                        <div class="metric-label">Leads/Month</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="founder-section">
+        <div class="founder-content">
+            <div class="founder-header">
+                <div class="founder-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+                <h2>Built by a Team Who's Been There</h2>
+                <h3>From Moving Trucks to Marketing Mastery</h3>
+            </div>
+            <div class="founder-story">
+                <p>Before Service 1, I built a moving company from the ground up. Not with traditional marketing—with Google Ads.</p>
+                <p>While competitors spent thousands on billboards, I ran laser-targeted campaigns that brought in qualified leads at a fraction of the cost. Within three years, we became the dominant mover in our market.</p>
+                <p>I sold that company for seven figures. But I realized something: most home service businesses were still struggling with the same outdated marketing I'd moved past years ago.</p>
+                <p>That's why I started Service 1. To give other home service companies the same unfair advantage I had—precision digital marketing that actually delivers ROI.</p>
+            </div>
+            <div class="founder-stats">
+                <div class="founder-stat">
+                    <div class="founder-stat-number">7-Fig</div>
+                    <div class="founder-stat-label">Exit Value</div>
+                </div>
+                <div class="founder-stat">
+                    <div class="founder-stat-number">3 Yrs</div>
+                    <div class="founder-stat-label">To Market Leader</div>
+                </div>
+                <div class="founder-stat">
+                    <div class="founder-stat-number">100%</div>
+                    <div class="founder-stat-label">Google Ads Growth</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section" id="how-it-works">
+        <h2 class="process-title">Designed around you.</h2>
+        <div class="process-grid">
+            <div class="process-item">
+                <div class="process-number">1</div>
+                <h3>Discovery</h3>
+                <p>One conversation to understand your business, your market, your goals.</p>
+            </div>
+            <div class="process-item">
+                <div class="process-number">2</div>
+                <h3>Launch</h3>
+                <p>Campaigns built with precision. Live within days. Leads flowing immediately.</p>
+            </div>
+            <div class="process-item">
+                <div class="process-number">3</div>
+                <h3>Growth</h3>
+                <p>Continuous optimization. Monthly strategy. Transparent results.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <h2 class="process-title">Your Success Timeline</h2>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <svg viewBox="0 0 24 24" fill="white">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-week">Week 1</div>
+                    <h4>Strategy & Setup</h4>
+                    <p>Deep dive into your business, competitors, and market. We build your custom marketing strategy and set up tracking.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <svg viewBox="0 0 24 24" fill="white">
+                        <path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/>
+                    </svg>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-week">Week 2</div>
+                    <h4>Campaign Launch</h4>
+                    <p>Your Google and Meta ads go live. Website optimizations deployed. First leads start coming in.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <svg viewBox="0 0 24 24" fill="white">
+                        <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+                    </svg>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-week">Week 3-4</div>
+                    <h4>Optimization Phase</h4>
+                    <p>We analyze data, kill underperforming ads, scale winners. Your cost per lead drops while volume increases.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <svg viewBox="0 0 24 24" fill="white">
+                        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                    </svg>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-week">Month 2+</div>
+                    <h4>Scale & Dominate</h4>
+                    <p>Consistent lead flow. Predictable revenue. You're now dominating your local market. We keep optimizing for even better results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section" id="about">
+        <h2 class="process-title">Built on transparency.</h2>
+        <div class="values-grid">
+            <div class="value-item">
+                <div class="value-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+                    </svg>
+                </div>
+                <h3>Direct Communication</h3>
+                <p>Slack channel. Real-time responses. No black box.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                    </svg>
+                </div>
+                <h3>Anytime</h3>
+                <p>Available when you need us. Fast response times. Flexible scheduling.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </div>
+                <h3>Strategy Calls</h3>
+                <p>Monthly performance reviews. Strategic planning. Course corrections.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                    </svg>
+                </div>
+                <h3>Clear Reporting</h3>
+                <p>Real metrics. Lead volume. Cost per acquisition. Transparent ROI.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section" id="contact">
+        <h2>Ready?</h2>
+        <p>Let's talk about your business.</p>
+        <a href="#" class="cta-btn">Book a Call</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>Service 1</h3>
+                <p>We help home service businesses dominate their local markets through strategic digital marketing that actually delivers results.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#services">Google Ads</a></li>
+                    <li><a href="#services">Website Design</a></li>
+                    <li><a href="#services">SEO</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Get In Touch</h3>
+                <ul class="footer-links">
+                    <li><a href="/cdn-cgi/l/email-protection#87efe2ebebe8c7f4e2f5f1eee4e2b6a9e4e8ea"><span class="__cf_email__" data-cfemail="f098959c9c9fb083958286999395c1de939f9d">[email&#160;protected]</span></a></li>
+                    <li><a href="tel:+1234567890">(123) 456-7890</a></li>
+                </ul>
+            </div>
+        </div>
+   
