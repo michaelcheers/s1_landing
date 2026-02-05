@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Growth Partners - Elite Marketing for Home Service Leaders</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-midnight: #0a0e27;
+            --color-slate: #1e293b;
+            --color-steel: #475569;
+            --color-mist: #94a3b8;
+            --color-pearl: #f1f5f9;
+            --color-accent: #3b82f6;
+            --color-accent-dark: #2563eb;
+            --color-gold: #f59e0b;
+            --color-success: #10b981;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--color-midnight);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            background: white;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 24px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--color-midnight);
+            letter-spacing: -0.03em;
+        }
+
+        .logo span {
+            color: var(--color-accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--color-slate);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--color-accent);
+        }
+
+        .nav-cta {
+            background: var(--color-midnight);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s;
+            border: 2px solid var(--color-midnight);
+        }
+
+        .nav-cta:hover {
+            background: var(--color-slate);
+            border-color: var(--color-slate);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 40px 100px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border: 1px solid #bfdbfe;
+            padding: 10px 20px;
+            border-radius: 100px;
+            margin-bottom: 32px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+
+        .hero-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 6vw, 72px);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 32px;
+            max-width: 900px;
+            color: var(--color-midnight);
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--color-accent) 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(20px, 2.5vw, 26px);
+            color: var(--color-steel);
+            margin-bottom: 48px;
+            max-width: 720px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--color-midnight);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 17px;
+            transition: all 0.3s;
+            border: 2px solid var(--color-midnight);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-slate);
+            border-color: var(--color-slate);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--color-midnight);
+            padding: 20px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 17px;
+            transition: all 0.3s;
+            border: 2px solid var(--color-midnight);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-midnight);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            margin-top: 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 900px;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--color-accent);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 15px;
+            color: var(--color-steel);
+            font-weight: 500;
+        }
+
+        /* Proof Section */
+        .proof-section {
+            padding: 100px 40px;
+            background: var(--color-midnight);
+            color: white;
+        }
+
+        .proof-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .proof-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .proof-label {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gold);
+            margin-bottom: 16px;
+        }
+
+        .proof-title {
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .proof-subtitle {
+            font-size: 20px;
+            color: var(--color-mist);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .case-study-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-study-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-gold));
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .case-company {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-gold);
+            margin-bottom: 12px;
+        }
+
+        .case-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .case-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--color-success);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 13px;
+            color: var(--color-mist);
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 120px 40px;
+            background: white;
+        }
+
+        .services-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-label {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            color: var(--color-midnight);
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--color-steel);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 48px;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, transparent 100%);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--color-accent);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .service-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .service-title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--color-midnight);
+            position: relative;
+        }
+
+        .service-description {
+            font-size: 16px;
+            color: var(--color-steel);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 24px;
+        }
+
+        .service-features li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            color: var(--color-slate);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-success);
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 120px 40px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        .process-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .process-timeline {
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 40px;
+            bottom: 40px;
+            width: 3px;
+            background: linear-gradient(180deg, var(--color-accent) 0%, var(--color-gold) 100%);
+        }
+
+        .process-step {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--color-accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 800;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+        }
+
+        .step-content {
+            flex: 1;
+            padding-top: 8px;
+        }
+
+        .step-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-accent);
+            margin-bottom: 12px;
+        }
+
+        .step-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--color-midnight);
+        }
+
+        .step-description {
+            font-size: 17px;
+            color: var(--color-steel);
+            line-height: 1.7;
+        }
+
+        /* Why Us Section */
+        .why-section {
+            padding: 120px 40px;
+            background: var(--color-slate);
+            color: white;
+        }
+
+        .why-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .why-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .why-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--color-accent), #6366f1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .why-icon svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .why-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .why-description {
+            font-size: 16px;
+            color: var(--color-mist);
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 120px 40px;
+            background: white;
+        }
+
+        .testimonials-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 32px;
+            margin-top: 80px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .testimonial-quote {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--color-slate);
+            margin-bottom: 28px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding-top: 24px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .author-avatar {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--color-accent), #6366f1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--color-midnight);
+            margin-bottom: 4px;
+        }
+
+        .author-role {
+            font-size: 14px;
+            color: var(--color-steel);
+        }
+
+        .testimonial-rating {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 20px;
+        }
+
+        .star {
+            color: var(--color-gold);
+            font-size: 20px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 40px;
+            background: linear-gradient(135deg, var(--color-midnight) 0%, var(--color-slate) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .cta-title {
+            font-size: clamp(40px, 5vw, 56px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .cta-subtitle {
+            font-size: 22px;
+            color: var(--color-mist);
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+
+        .cta-form {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 48px;
+            margin-top: 60px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            font-size: 16px;
+            color: var(--color-midnight);
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            background: white;
+        }
+
+        textarea.form-input {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 20px;
+            background: var(--color-accent);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 12px;
+        }
+
+        .form-submit:hover {
+            background: var(--color-accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-midnight);
+            color: white;
+            padding: 80px 40px 40px;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand {
+            max-width: 350px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo span {
+            color: var(--color-accent);
+        }
+
+        .footer-description {
+            font-size: 15px;
+            color: var(--color-mist);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .footer-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--color-mist);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: var(--color-mist);
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-legal a {
+            color: var(--color-mist);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-legal a:hover {
+            color: white;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 24px;
+            }
+
+            .nav-menu a:not(.nav-cta) {
+                display: none;
+            }
+
+            .hero {
+                padding: 140px 24px 60px;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .case-study-grid, .services-grid, .why-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-timeline::before {
+                left: 30px;
+            }
+
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .services-section, .process-section, .why-section, .testimonials-section, .cta-section {
+                padding: 80px 24px;
+            }
+
+            .proof-section {
+                padding: 80px 24px;
+            }
+
+            .cta-form {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">APEX<span>.</span></div>
+            <div class="nav-menu">
+                <a href="#services">Services</a>
+                <a href="#process">Process</a>
+                <a href="#results">Results</a>
+                <a href="#contact" class="nav-cta">Partner With Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                Trusted by 150+ Premium Home Service Brands
+            </div>
+            
+            <h1>Marketing That <span class="gradient-text">Multiplies Revenue</span> for Elite Home Service Companies</h1>
+            
+            <p class="hero-subtitle">We partner with established HVAC, plumbing, electrical, and roofing companies who are ready to dominate their markets. No amateur hour—just results-driven strategy backed by proven systems.</p>
+            
+            <div class="hero-cta-group">
+                <a href="#contact" class="btn-primary">
+                    Schedule Strategy Call
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </a>
+                <a href="#results" class="btn-secondary">View Case Studies</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">$47M+</div>
+                    <div class="stat-label">Revenue Generated for Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3.2x</div>
+                    <div class="stat-label">Average ROI Within 6 Months</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">94%</div>
+                    <div class="stat-label">Client Retention Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proof Section -->
+    <section class="proof-section" id="results">
+        <div class="proof-container">
+            <div class="proof-header">
+                <div class="proof-label">Real Results</div>
+                <h2 class="proof-title">We Don't Just Get Clicks.<br>We Fill Your Calendar.</h2>
+                <p class="proof-subtitle">Here's what happens when established home service companies partner with growth specialists who actually understand their business.</p>
+            </div>
+
+            <div class="case-study-grid">
+                <div class="case-study-card">
+                    <div class="case-company">Elite HVAC Solutions</div>
+                    <h3 class="case-title">From $850K to $2.3M Annual Revenue in 14 Months</h3>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <div class="metric-value">+171%</div>
+                            <div class="metric-label">Revenue Growth</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">$42</div>
+                            <div class="metric-label">Cost Per Lead</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-study-card">
+                    <div class="case-company">Precision Plumbing Co.</div>
+                    <h3 class="case-title">Scaled from 3 to 12 Trucks While Maintaining 65% Profit Margins</h3>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <div class="metric-value">4.7x</div>
+                            <div class="metric-label">ROI on Ad Spend</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">340</div>
+                            <div class="metric-label">Monthly Qualified Leads</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-study-card">
+                    <div class="case-company">Premium Roofing Group</div>
+                    <h3 class="case-title">Dominated 3-County Area with $4.8M in Booked Projects Year One</h3>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <div class="metric-value">+215%</div>
+                            <div class="metric-label">Qualified Lead Volume</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">28%</div>
+                            <div class="metric-label">Close Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="services-container">
+            <div class="section-header">
+                <div class="section-label">Our Services</div>
+                <h2 class="section-title">The Complete Growth System</h2>
+                <p class="section-subtitle">We handle everything from strategy to execution. You focus on delivering world-class service while we fill your pipeline with premium leads.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg fill="white" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Performance Advertising</h3>
+                    <p class="service-description">Laser-targeted Google and Meta campaigns engineered to convert your ideal customers. We manage $2M+ in annual ad spend and know exactly what works in home services.</p>
+                    <ul class="service-features">
+                        <li>Google Local Services Ads optimization</li>
+                        <li>High-intent PPC campaigns</li>
+                        <li>Facebook & Instagram lead generation</li>
+                        <li>Advanced audience targeting & retargeting</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg fill="white" viewBox="0 0 24 24">
+                            <path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7v2H8v2h8v-2h-2v-2h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H3V4h18v12z"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Conversion-Optimized Websites</h3>
+                    <p class="service-description">Beautiful, fast-loading websites built to turn visitors into booked jobs. Every element is strategically designed to maximize conversions and reflect your premium brand.</p>
+                    <ul class="service-features">
+                        <li>Mobile-first design & development</li>
+                        <li>Integrated booking & CRM systems</li>
+                        <li>Page speed optimization (90+ scores)</li>
+                        <li>A/B testing & continuous improvement</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg fill="white" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">SEO & Local Dominance</h3>
+                    <p class="service-description">Own page one for every high-value keyword in your market. Our SEO strategies are built for long-term dominance, not quick fixes that disappear in six months.</p>
+                    <ul class="service-features">
+                        <li>Technical SEO & site architecture</li>
+                        <li>Google Business Profile mastery</li>
+                        <li>Local citation building & management</li>
+                        <li>Strategic content creation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section" id="process">
+        <div class="process-container">
+            <div class="section-header">
+                <div class="section-label">Our Process</div>
+                <h2 class="section-title">How We Transform Your Marketing</h2>
+                <p class="section-subtitle">A proven, systematic approach refined through hundreds of successful partnerships with home service businesses.</p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-label">Discovery & Strategy</div>
+                        <h3 class="step-title">Deep-Dive Business Audit</h3>
+                        <p class="step-description">We analyze your market position, competitive landscape, profit margins, and operational capacity. No cookie-cutter solutions—everything is tailored to your specific business model and growth goals.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-label">Foundation Building</div>
+                        <h3 class="step-title">Infrastructure & Tracking Setup</h3>
+                        <p class="step-description">We implement conversion tracking, CRM integration, call tracking, and analytics infrastructure. You'll know exactly where every lead comes from and what it costs—down to the dollar.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-label">Campaign Launch</div>
+                        <h3 class="step-title">Multi-Channel Deployment</h3>
+                        <p class="step-description">We launch comprehensive campaigns across Google, Facebook, Instagram, and other relevant channels. Within 14 days, qualified leads start flowing while we gather critical performance data.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-label">Optimization & Scale</div>
+                        <h3 class="step-title">Continuous Improvement</h3>
+                        <p class="step-description">We obsessively test, refine, and optimize. Underperformers get cut. Winners get scaled. Your cost per acquisition drops while lead volume increases. This is where the magic happens.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="why-section">
+        <div class="why-container">
+            <div class="section-header">
+                <div class="section-label" style="color: var(--color-gold);">Why Apex</div>
+                <h2 class="section-title" style="color: white;">Built Different. Built for Results.</h2>
+                <p class="section-subtitle" style="color: var(--color-mist);">We're not another generic marketing agency. We're home service specialists who understand field operations, seasonal fluctuations, and what it takes to profitably scale service businesses.</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg fill="white" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="why-title">Home Services Experts</h3>
+                    <p class="why-description">We exclusively serve home service businesses. We know your customers, your sales cycles, and your operational challenges inside and out.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg fill="white" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="why-title">Transparent Reporting</h3>
+                    <p class="why-description">Real-time dashboards showing leads, costs, conversion rates, and ROI. No smoke and mirrors—just clear data you can use to make decisions.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg fill="white" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="why-title">Direct Access</h3>
+                    <p class="why-description">Work directly with senior strategists—not account coordinators. Slack channel for real-time communication. Strategy calls whenever you need them.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg fill="white" viewBox="0 0 24 24">
+                            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                        </svg>
+                    </div>
+                    <h3 class="why-title">Proven Systems</h3>
+                    <p class="why-description">Battle-tested frameworks that have scaled dozens of home service companies past 7 and 8 figures. We know what works because we've done it repeatedly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="testimonials-container">
+            <div class="section-header">
+                <div class="section-label">Client Feedback</div>
+                <h2 class="section-title">What Our Partners Say</h2>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="testimonial-quote">"We tried three other agencies before Apex. The difference is night and day. They actually understand HVAC business economics and built campaigns that generated profitable growth, not just cheap leads that never close."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MJ</div>
+                        <div class="author-info">
+                            <div class="author-name">Michael Johnson</div>
+                            <div class="author-role">Owner, Elite HVAC Solutions</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="testimonial-quote">"The ROI speaks for itself. We're spending $18K/month on ads and generating $90K+ in monthly revenue from their campaigns alone. Plus the SEO work has us dominating every major keyword in our market."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SR</div>
+                        <div class="author-info">
+                            <div class="author-name">Sarah Rodriguez</div>
+                            <div class="author-role">CEO, Precision Plumbing Co.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="testimonial-quote">"Finally, an agency that doesn't treat us like just another client. They know our business model, understand our margins, and consistently deliver leads that actually turn into profitable jobs. Worth every penny."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DT</div>
+                        <div class="author-info">
+                            <div class="author-name">David Thompson</div>
+                            <div class="author-role">Founder, Premium Roofing Group</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="cta-container">
+            <h2 class="cta-title">Ready to Scale Your Business?</h2>
+            <p class="cta-subtitle">Let's have a straightforward conversation about your goals and see if we're a good fit. No high-pressure sales tactics—just honest dialogue about growing your business.</p>
+
+            <form class="cta-form">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" placeholder="John Smith" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Business Email</label>
+                    <input type="email" class="form-input" placeholder="john@yourbusiness.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-input" placeholder="(555) 123-4567" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Company Name</label>
+                    <input type="text" class="form-input" placeholder="Your Company LLC" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Current Monthly Revenue</label>
+                    <input type="text" class="form-input" placeholder="e.g., $50K-$100K" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">What are your biggest growth challenges?</label>
+                    <textarea class="form-input" placeholder="Tell us about your business goals and what's holding you back..." required></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Book Your Strategy Call</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">APEX<span>.</span></div>
+                    <p class="footer-description">Elite marketing solutions exclusively for established home service businesses ready to dominate their markets and scale profitably.</p>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Performance Advertising</a></li>
+                        <li><a href="#services">Website Development</a></li>
+                        <li><a href="#services">SEO & Local Dominance</a></li>
+                        <li><a href="#services">CRM Integration</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#results">Case Studies</a></li>
+                        <li><a href="#process">Our Process</a></li>
+                        <li><a href="#contact">Partner With Us</a></li>
+                        <li><a href="#contact">Book a Call</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:hello@apexgrowth.co">hello@apexgrowth.co</a></li>
+                        <li><a href="tel:+18885551234">(888) 555-1234</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2025 Apex Growth Partners. All rights reserved.</div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
