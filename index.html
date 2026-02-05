@@ -1007,6 +1007,36 @@
         .cta-section .cta-btn {
             padding: 18px 48px;
             font-size: 18px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .cta-form {
+            display: flex;
+            gap: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-form input {
+            flex: 1;
+            padding: 18px 20px;
+            font-size: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .cta-form input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .cta-form input:focus {
+            border-color: var(--color-green);
         }
 
         .cta-trust {
@@ -1033,7 +1063,7 @@
 
         /* Footer */
         footer {
-            background: #1d1d1f;
+            background: #0a0a0a;
             color: rgba(255, 255, 255, 0.8);
             padding: 80px 24px 40px;
         }
@@ -1103,6 +1133,10 @@
             
             .featured-testimonial .testimonial-metrics {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-form {
+                flex-direction: column;
             }
         }
     </style>
@@ -1635,7 +1669,11 @@
             <div class="cta-label">Get Started Today</div>
             <h2>Ready to <span>grow?</span></h2>
             <p>Join 500+ home service businesses already dominating their market. One call is all it takes.</p>
-            <a href="#" class="cta-btn">Book a Call</a>
+            <form class="cta-form" action="#" method="POST">
+                <input type="text" name="company" placeholder="Company Name" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <button type="submit" class="cta-btn">Get Started</button>
+            </form>
             <div class="cta-trust">
                 <div class="cta-trust-item">
                     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
