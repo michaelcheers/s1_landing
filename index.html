@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="script-src 'none'">
     <title>Service 1 - Turn Clicks Into Customers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,15 +18,25 @@
         :root {
             --color-green: #30d158;
             --color-green-dark: #28a745;
+            --color-midnight: #0a0e27;
+            --color-slate: #1e293b;
+            --color-steel: #475569;
+            --color-mist: #94a3b8;
             --color-text: #1d1d1f;
             --color-text-secondary: #6e6e73;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-pill: 100px;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--color-text);
-            line-height: 1.5;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            background: white;
         }
 
         /* Navigation */
@@ -32,16 +45,16 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 20px 24px;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -49,64 +62,110 @@
 
         .logo img {
             height: 32px;
-			transform: scale(0.8);
-			transform-origin: left;
-
+            transform: scale(0.8);
+            transform-origin: left;
         }
 
         .nav-menu {
             display: flex;
-            gap: 32px;
+            gap: 40px;
             align-items: center;
         }
 
         .nav-menu a {
-            color: var(--color-text);
+            color: var(--color-slate);
             text-decoration: none;
-            font-size: 14px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--color-green);
         }
 
         .cta-btn {
             background: var(--color-green);
             color: white;
             padding: 12px 28px;
-            border-radius: 0;
+            border-radius: var(--radius-sm);
             text-decoration: none;
             font-weight: 600;
+            font-size: 15px;
             transition: all 0.3s;
         }
 
         .cta-btn:hover {
             background: var(--color-green-dark);
             transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(48, 209, 88, 0.25);
         }
 
         /* Hero Section */
         .hero {
-            min-height: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 160px 40px 80px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
             text-align: center;
-            padding: 110px 24px 30px;
-            background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(48, 209, 88, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border: 1px solid rgba(48, 209, 88, 0.3);
+            padding: 10px 20px;
+            border-radius: var(--radius-pill);
+            margin-bottom: 32px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-green-dark);
+        }
+
+        .hero-badge svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--color-green);
         }
 
         .hero h1 {
-            font-size: clamp(56px, 7vw, 80px);
-            font-weight: 600;
-            letter-spacing: -0.02em;
+            font-size: clamp(52px, 7vw, 80px);
+            font-weight: 800;
+            letter-spacing: -0.04em;
             line-height: 1.05;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            color: var(--color-midnight);
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--color-green) 0%, var(--color-green-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-subtitle {
-            font-size: clamp(18px, 3vw, 24px);
-            color: var(--color-text-secondary);
-            margin-bottom: 24px;
+            font-size: clamp(18px, 2.5vw, 22px);
+            color: var(--color-steel);
+            margin-bottom: 32px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 500;
+            line-height: 1.5;
         }
 
         /* Service Pills */
@@ -115,13 +174,14 @@
             justify-content: center;
             gap: 16px;
             flex-wrap: wrap;
-            margin: 24px 0;
+            margin: 32px 0;
         }
 
         .service-pill {
             background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
             border: 2px solid #0EA5E9;
             padding: 10px 24px;
+            border-radius: var(--radius-pill);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -140,6 +200,7 @@
         .pill-check {
             width: 20px;
             height: 20px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -163,7 +224,7 @@
 
         /* Video Section */
         .video-section {
-            margin: 24px 0 48px;
+            margin: 32px 0 48px;
         }
 
         .video-placeholder {
@@ -171,17 +232,20 @@
             margin: 0 auto 16px;
             aspect-ratio: 16/9;
             background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border-radius: var(--radius-lg);
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             cursor: pointer;
+            overflow: hidden;
         }
 
         .play-button {
             width: 80px;
             height: 80px;
             background: var(--color-green);
+            border-radius: 50%;
             color: white;
             display: flex;
             align-items: center;
@@ -204,50 +268,21 @@
             font-weight: 600;
         }
 
-        /* Stats */
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 80px;
-            margin-top: 0;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: 600;
-            background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: var(--color-text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Trust Badges - Compact Partner Bar */
+        /* Trust Badges */
         .trust-section {
             background: white;
-            padding: 30px 24px;
-            border-bottom: 1px solid #e0e0e0;
-            margin-top: -7px;
+            padding: 30px 40px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
-        .section-title {
+        .trust-title {
             font-size: 12px;
-            font-weight: 600;
-            color: var(--color-text-secondary);
+            font-weight: 700;
+            color: var(--color-steel);
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .badges-grid {
@@ -260,7 +295,6 @@
         }
 
         .badge-item {
-            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -270,9 +304,9 @@
         .badge-icon {
             width: 48px;
             height: 48px;
-            margin: 0;
             background: white;
-            border: 1px solid #e0e0e0;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
             padding: 8px;
             display: flex;
             align-items: center;
@@ -282,18 +316,106 @@
         .badge-label {
             font-size: 11px;
             font-weight: 600;
-            color: var(--color-text-secondary);
+            color: var(--color-steel);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-green), var(--color-green-dark));
+        }
+
+        .stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .stat-divider {
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0 80px;
+        }
+
+        /* Section Header Pattern */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-green);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--color-midnight);
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--color-steel);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
 
         /* Service Sections */
         .service-section {
-            background: #000;
+            background: var(--color-midnight);
             color: white;
-            padding: 60px 24px;
+            padding: 100px 40px;
         }
 
         .service-section:nth-child(even) {
-            background: #fafafa;
+            background: #f8fafc;
             color: var(--color-text);
         }
 
@@ -307,46 +429,48 @@
         }
 
         .service-label {
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 13px;
+            font-weight: 700;
             color: var(--color-green);
             text-transform: uppercase;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
+            margin-bottom: 16px;
+            letter-spacing: 0.1em;
         }
 
         .service-title {
-            font-size: clamp(36px, 5vw, 56px);
-            font-weight: 600;
-            letter-spacing: -0.02em;
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
             margin-bottom: 12px;
         }
 
         .service-subtitle {
-            font-size: clamp(24px, 3vw, 32px);
-            color: rgba(255, 255, 255, 0.7);
+            font-size: clamp(20px, 3vw, 28px);
+            color: rgba(255, 255, 255, 0.6);
             margin-bottom: 20px;
+            font-weight: 500;
         }
 
         .service-section:nth-child(even) .service-subtitle {
-            color: var(--color-text-secondary);
+            color: var(--color-steel);
         }
 
         .service-description {
             font-size: 16px;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .service-section:nth-child(even) .service-description {
-            color: var(--color-text-secondary);
+            color: var(--color-steel);
         }
 
-        /* Mockups */
+        /* Ad Mockup */
         .mockup {
             background: white;
-            border: 1px solid #e0e0e0;
-            padding: 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-lg);
+            padding: 24px;
             max-width: 500px;
         }
 
@@ -355,9 +479,10 @@
             color: white;
             padding: 4px 12px;
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 700;
             display: inline-block;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            border-radius: 4px;
         }
 
         .ad-url {
@@ -369,14 +494,14 @@
         .ad-title {
             color: #1a0dab;
             font-size: 18px;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 8px;
         }
 
         .ad-description {
             color: #4d5156;
             font-size: 13px;
-            line-height: 1.4;
+            line-height: 1.5;
             margin-bottom: 12px;
         }
 
@@ -389,6 +514,7 @@
         .ad-callout {
             font-size: 12px;
             color: #4d5156;
+            font-weight: 500;
         }
 
         .ad-callout::before {
@@ -402,10 +528,12 @@
             background: white;
             overflow: hidden;
             max-width: 500px;
+            border-radius: var(--radius-lg);
+            border: 1px solid #e2e8f0;
         }
 
         .browser-header {
-            background: #e8e8e8;
+            background: #f1f5f9;
             padding: 12px;
             display: flex;
             align-items: center;
@@ -420,6 +548,7 @@
         .browser-dot {
             width: 12px;
             height: 12px;
+            border-radius: 50%;
         }
 
         .browser-dot:nth-child(1) { background: #ff5f56; }
@@ -432,6 +561,7 @@
             padding: 6px 12px;
             font-size: 12px;
             color: #666;
+            border-radius: 6px;
         }
 
         .browser-content {
@@ -443,10 +573,12 @@
             color: white;
             padding: 32px 24px;
             text-align: center;
+            border-radius: var(--radius-md);
         }
 
         .website-preview h3 {
             font-size: 28px;
+            font-weight: 700;
             margin-bottom: 12px;
         }
 
@@ -462,6 +594,7 @@
             display: inline-block;
             font-weight: 600;
             margin-bottom: 24px;
+            border-radius: var(--radius-sm);
         }
 
         .website-features {
@@ -472,8 +605,9 @@
         }
 
         .website-feature {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             padding: 12px;
+            border-radius: var(--radius-sm);
         }
 
         /* SEO Dashboard */
@@ -490,24 +624,27 @@
             font-size: 13px;
             color: #666;
             margin-bottom: 8px;
+            font-weight: 500;
         }
 
         .seo-number {
             font-size: 32px;
-            font-weight: 600;
+            font-weight: 800;
             color: var(--color-green);
             margin-bottom: 12px;
         }
 
         .seo-bar {
-            background: #f0f0f0;
+            background: #f1f5f9;
             height: 8px;
+            border-radius: 4px;
         }
 
         .seo-bar-fill {
             background: linear-gradient(90deg, var(--color-green), var(--color-green-dark));
             height: 100%;
             width: 95%;
+            border-radius: 4px;
         }
 
         .seo-chart {
@@ -521,6 +658,7 @@
         .chart-bar {
             flex: 1;
             background: linear-gradient(180deg, var(--color-green), var(--color-green-dark));
+            border-radius: 4px 4px 0 0;
         }
 
         .chart-bar:nth-child(1) { height: 40%; }
@@ -529,11 +667,160 @@
         .chart-bar:nth-child(4) { height: 85%; }
         .chart-bar:nth-child(5) { height: 100%; }
 
+        /* Testimonials */
+        .testimonials-section {
+            background: white;
+            padding: 120px 40px;
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius-xl);
+            padding: 40px 32px;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-green);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .testimonial-author {
+            flex: 1;
+        }
+
+        .testimonial-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--color-midnight);
+            margin-bottom: 4px;
+        }
+
+        .testimonial-company {
+            font-size: 14px;
+            color: var(--color-green-dark);
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .testimonial-role {
+            font-size: 13px;
+            color: var(--color-steel);
+        }
+
+        .stars {
+            color: #f59e0b;
+            font-size: 18px;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--color-steel);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testimonial-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: var(--color-steel);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+
+        /* Featured Testimonial */
+        .featured-testimonial {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border: 2px solid var(--color-green);
+            border-radius: var(--radius-xl);
+            padding: 48px 40px;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: var(--color-green);
+            color: white;
+            padding: 6px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            border-radius: var(--radius-sm);
+        }
+
+        .featured-testimonial blockquote {
+            font-size: 22px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .featured-testimonial .testimonial-metrics {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
         /* Founder Section */
         .founder-section {
-            background: #fafafa;
+            background: #f8fafc;
             color: var(--color-text);
-            padding: 80px 24px;
+            padding: 100px 40px;
         }
 
         .founder-content {
@@ -542,19 +829,11 @@
             background: #fffef8;
             padding: 60px 56px;
             border: none;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
             position: relative;
             font-family: 'Courier New', Courier, monospace;
-        }
-
-        .founder-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--color-green), var(--color-green-dark));
+            border-top: 3px solid var(--color-green);
         }
 
         .founder-header {
@@ -649,48 +928,51 @@
             font-family: 'Courier New', Courier, monospace;
         }
 
-        /* Process Section */
-        .process-section {
-            background: white;
-            padding: 80px 24px;
-        }
-
-        .process-title {
-            font-size: clamp(40px, 5vw, 64px);
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-
-        /* Timeline */
+        /* Timeline Section */
         .timeline-section {
-            background: #fafafa;
-            padding: 80px 24px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            padding: 120px 40px;
         }
 
         .timeline-container {
             max-width: 1000px;
-            margin: 60px auto 0;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 40px;
+            bottom: 40px;
+            width: 3px;
+            background: linear-gradient(180deg, var(--color-green) 0%, var(--color-green-dark) 100%);
         }
 
         .timeline-item {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 32px;
+            display: flex;
+            gap: 40px;
             margin-bottom: 48px;
-            align-items: flex-start;
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
         }
 
         .timeline-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
+            width: 80px;
+            height: 80px;
+            background: var(--color-green);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            box-shadow: 0 4px 16px rgba(48, 209, 88, 0.3);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 8px 24px rgba(48, 209, 88, 0.3);
         }
 
         .timeline-icon svg {
@@ -699,256 +981,111 @@
         }
 
         .timeline-content {
+            flex: 1;
             background: white;
             padding: 32px;
-            border: 2px solid rgba(48, 209, 88, 0.2);
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius-lg);
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--color-green);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
         }
 
         .timeline-week {
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 13px;
+            font-weight: 700;
             color: var(--color-green);
             text-transform: uppercase;
+            letter-spacing: 0.1em;
             margin-bottom: 12px;
         }
 
         .timeline-content h4 {
-            font-size: 24px;
-            font-weight: 600;
+            font-size: 22px;
+            font-weight: 700;
             margin-bottom: 12px;
+            color: var(--color-midnight);
         }
 
         .timeline-content p {
             font-size: 16px;
-            color: var(--color-text-secondary);
-            line-height: 1.6;
+            color: var(--color-steel);
+            line-height: 1.7;
         }
 
-        /* Values */
+        /* Why Us / Values Section (Dark) */
         .values-section {
-            background: #f5f5f7;
-            padding: 80px 24px;
+            background: var(--color-slate);
+            color: white;
+            padding: 120px 40px;
+        }
+
+        .values-section .section-label {
+            color: var(--color-green);
+        }
+
+        .values-section .section-title {
+            color: white;
+        }
+
+        .values-section .section-subtitle {
+            color: var(--color-mist);
         }
 
         .values-grid {
             max-width: 1200px;
-            margin: 60px auto 0;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 32px;
         }
 
         .value-item {
-            background: white;
-            padding: 40px 32px;
-            border: 2px solid rgba(48, 209, 88, 0.2);
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
             transition: all 0.3s;
         }
 
         .value-item:hover {
+            background: rgba(255, 255, 255, 0.08);
             transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(48, 209, 88, 0.15);
         }
 
         .value-icon {
-            width: 48px;
-            height: 48px;
+            width: 72px;
+            height: 72px;
             background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            color: white;
-            margin-bottom: 20px;
+            margin: 0 auto 24px;
         }
 
         .value-item h3 {
-            font-size: 24px;
-            font-weight: 600;
+            font-size: 22px;
+            font-weight: 700;
             margin-bottom: 12px;
+            color: white;
         }
 
         .value-item p {
-            font-size: 17px;
-            color: var(--color-text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Testimonials */
-        .testimonials-section {
-            background: #f5f5f7;
-            padding: 100px 24px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonials-section .process-title {
-            color: var(--color-text);
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonials-grid {
-            max-width: 1200px;
-            margin: 60px auto 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-card {
-            background: white;
-            border: 1px solid #e0e0e0;
-            padding: 40px 32px;
-            position: relative;
-            transition: all 0.4s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--color-green);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .testimonial-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--color-green), var(--color-green-dark));
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .testimonial-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .testimonial-avatar {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-
-        .testimonial-author {
-            flex: 1;
-        }
-
-        .testimonial-name {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--color-text);
-            margin-bottom: 4px;
-        }
-
-        .testimonial-company {
-            font-size: 14px;
-            color: var(--color-green-dark);
-            margin-bottom: 4px;
-        }
-
-        .testimonial-role {
-            font-size: 13px;
-            color: var(--color-text-secondary);
-        }
-
-        .stars {
-            color: #ffd700;
-            font-size: 18px;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-
-        .testimonial-card blockquote {
             font-size: 16px;
-            line-height: 1.7;
-            color: var(--color-text-secondary);
-            margin-bottom: 24px;
-            font-style: italic;
-        }
-
-        .testimonial-metrics {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            padding-top: 24px;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .metric {
-            text-align: center;
-        }
-
-        .metric-value {
-            font-size: 28px;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 4px;
-        }
-
-        .metric-label {
-            font-size: 12px;
-            color: var(--color-text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Featured Testimonial */
-        .featured-testimonial {
-            grid-column: 1 / -1;
-            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-            border: 2px solid var(--color-green);
-            padding: 48px 40px;
-        }
-
-        .featured-badge {
-            display: inline-block;
-            background: var(--color-green);
-            color: white;
-            padding: 6px 16px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 24px;
-        }
-
-        .featured-testimonial blockquote {
-            font-size: 24px;
+            color: var(--color-mist);
             line-height: 1.6;
-            margin-bottom: 32px;
-        }
-
-        .featured-testimonial .testimonial-metrics {
-            grid-template-columns: repeat(2, 1fr);
         }
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, #000 0%, #0a1a0f 50%, #000 100%);
+            background: linear-gradient(135deg, var(--color-midnight) 0%, var(--color-slate) 100%);
             color: white;
-            padding: 120px 24px;
+            padding: 120px 40px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -957,47 +1094,36 @@
         .cta-section::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--color-green), transparent);
-        }
-
-        .cta-section::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(48, 209, 88, 0.08) 0%, transparent 70%);
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(48, 209, 88, 0.1) 0%, transparent 70%);
             pointer-events: none;
         }
 
         .cta-inner {
+            max-width: 700px;
+            margin: 0 auto;
             position: relative;
             z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
         }
 
         .cta-label {
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 13px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 0.1em;
             color: var(--color-green);
             margin-bottom: 24px;
         }
 
         .cta-section h2 {
-            font-size: clamp(56px, 10vw, 100px);
-            font-weight: 600;
-            margin-bottom: 24px;
-            line-height: 1.05;
+            font-size: clamp(40px, 6vw, 56px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
 
         .cta-section h2 span {
@@ -1008,45 +1134,70 @@
         }
 
         .cta-section p {
-            font-size: 21px;
-            color: rgba(255, 255, 255, 0.7);
+            font-size: 20px;
+            color: var(--color-mist);
             margin-bottom: 48px;
             line-height: 1.6;
         }
 
-        .cta-section .cta-btn {
-            padding: 18px 48px;
-            font-size: 18px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-
         .cta-form {
-            display: flex;
-            gap: 12px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .cta-form input {
-            flex: 1;
-            padding: 18px 20px;
-            font-size: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
             background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-xl);
+            padding: 48px;
+            text-align: left;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
             color: white;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            font-size: 16px;
+            color: var(--color-midnight);
             font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
             outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .cta-form input::placeholder {
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        .cta-form input:focus {
             border-color: var(--color-green);
+            background: white;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 20px;
+            background: var(--color-green);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 8px;
+            font-family: inherit;
+        }
+
+        .form-submit:hover {
+            background: var(--color-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(48, 209, 88, 0.3);
         }
 
         .cta-trust {
@@ -1055,6 +1206,7 @@
             justify-content: center;
             gap: 32px;
             flex-wrap: wrap;
+            text-align: center;
         }
 
         .cta-trust-item {
@@ -1062,7 +1214,8 @@
             align-items: center;
             gap: 8px;
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.5);
+            color: var(--color-mist);
+            font-weight: 500;
         }
 
         .cta-trust-item svg {
@@ -1073,30 +1226,34 @@
 
         /* Footer */
         footer {
-            background: #0a0a0a;
-            color: rgba(255, 255, 255, 0.8);
-            padding: 80px 24px 40px;
+            background: var(--color-midnight);
+            color: white;
+            padding: 80px 40px 40px;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
         }
 
         .footer-grid {
-            max-width: 1200px;
-            margin: 0 auto 60px;
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 60px;
+            margin-bottom: 60px;
         }
 
         .footer-column h3 {
             color: white;
-            font-size: 17px;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 700;
             margin-bottom: 20px;
         }
 
         .footer-column p {
-            font-size: 14px;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--color-mist);
         }
 
         .footer-links {
@@ -1108,45 +1265,89 @@
         }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--color-mist);
             text-decoration: none;
-            font-size: 14px;
+            font-size: 15px;
+            transition: color 0.3s;
         }
 
         .footer-links a:hover {
-            color: white;
+            color: var(--color-green);
         }
 
         .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
             padding-top: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: var(--color-mist);
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-legal a {
+            color: var(--color-mist);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-legal a:hover {
+            color: white;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .nav-menu { display: none; }
+            .nav-container { padding: 16px 24px; }
+            .hero { padding: 130px 24px 60px; }
             .service-content { grid-template-columns: 1fr; }
-            .founder-stats { grid-template-columns: 1fr; gap: 32px; }
-            .timeline-item { grid-template-columns: 1fr; }
-            .timeline-icon { margin: 0 auto; }
+            .founder-content { padding: 40px 28px; }
+            .founder-stats { grid-template-columns: 1fr; gap: 24px; }
+            .timeline-container::before { left: 30px; }
+            .timeline-icon { width: 60px; height: 60px; }
+            .timeline-icon svg { width: 24px; height: 24px; }
             .footer-grid { grid-template-columns: 1fr; gap: 40px; }
             .website-features { grid-template-columns: 1fr; }
-            
+            .stats-grid { gap: 40px; }
+            .stat-divider { border: none; padding: 0; }
+
+            .testimonials-section,
+            .timeline-section,
+            .values-section,
+            .cta-section {
+                padding: 80px 24px;
+            }
+
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .featured-testimonial .testimonial-metrics {
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
             .cta-form {
+                padding: 32px 24px;
+            }
+
+            .footer-bottom {
                 flex-direction: column;
+                text-align: center;
+            }
+
+            .service-section {
+                padding: 80px 24px;
             }
         }
     </style>
@@ -1169,10 +1370,17 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div style="max-width: 900px;">
-            <h1>Growth.<br>Engineered.</h1>
+        <div style="max-width: 900px; position: relative;">
+            <div class="hero-badge">
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                Trusted by 500+ Home Service Businesses
+            </div>
+
+            <h1>Growth.<br><span class="gradient-text">Engineered.</span></h1>
             <p class="hero-subtitle">We help home service businesses dominate their market with Google Ads, SEO, and conversion-focused websites.</p>
-            
+
             <!-- Service Pills -->
             <div class="service-pills">
                 <div class="service-pill">
@@ -1188,7 +1396,7 @@
                     <span class="pill-text green">Web Design</span>
                 </div>
             </div>
-            
+
             <!-- Video Section -->
             <div class="video-section">
                 <div class="video-placeholder">
@@ -1203,7 +1411,7 @@
 
     <!-- Trust Badges -->
     <section class="trust-section">
-        <div class="section-title" style="text-align: center;">OFFICIAL PARTNERS</div>
+        <div class="trust-title">OFFICIAL PARTNERS</div>
         <div class="badges-grid">
             <div class="badge-item">
                 <div class="badge-icon">
@@ -1236,20 +1444,19 @@
     </section>
 
     <!-- Stats Bar -->
-    <section style="background: linear-gradient(135deg, #0a0a0a, #1a1a1a); padding: 60px 24px; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--color-green), var(--color-green-dark));"></div>
-        <div class="hero-stats">
+    <section class="stats-bar">
+        <div class="stats-grid">
             <div class="stat-item">
                 <div class="stat-number">500+</div>
-                <div class="stat-label" style="color: rgba(255,255,255,0.5);">Businesses Served</div>
+                <div class="stat-label">Businesses Served</div>
             </div>
-            <div class="stat-item" style="border-left: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1); padding: 0 80px;">
+            <div class="stat-item stat-divider">
                 <div class="stat-number">$10M+</div>
-                <div class="stat-label" style="color: rgba(255,255,255,0.5);">Ad Spend Managed</div>
+                <div class="stat-label">Ad Spend Managed</div>
             </div>
             <div class="stat-item">
                 <div class="stat-number">98%</div>
-                <div class="stat-label" style="color: rgba(255,255,255,0.5);">Client Retention</div>
+                <div class="stat-label">Client Retention</div>
             </div>
         </div>
     </section>
@@ -1360,10 +1567,12 @@
         </div>
     </section>
 
-
     <!-- Testimonials -->
     <section class="testimonials-section">
-        <h2 class="process-title">Real Results from Real Businesses</h2>
+        <div class="section-header">
+            <div class="section-label">Client Results</div>
+            <h2 class="section-title">Real Results from Real Businesses</h2>
+        </div>
         <div class="testimonials-grid">
             <!-- Featured Testimonial -->
             <div class="testimonial-card featured-testimonial">
@@ -1390,7 +1599,6 @@
                 </div>
             </div>
 
-            <!-- Regular Testimonial 1 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">SR</div>
@@ -1414,7 +1622,6 @@
                 </div>
             </div>
 
-            <!-- Regular Testimonial 2 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">JT</div>
@@ -1438,7 +1645,6 @@
                 </div>
             </div>
 
-            <!-- Regular Testimonial 3 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">LM</div>
@@ -1462,7 +1668,6 @@
                 </div>
             </div>
 
-            <!-- Regular Testimonial 4 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">DK</div>
@@ -1486,7 +1691,6 @@
                 </div>
             </div>
 
-            <!-- Regular Testimonial 5 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">AJ</div>
@@ -1510,7 +1714,6 @@
                 </div>
             </div>
 
-            <!-- Regular Testimonial 6 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">RP</div>
@@ -1570,14 +1773,13 @@
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="process-section" id="how-it-works">
-        <h2 class="process-title">Designed around you.</h2>
-    </section>
-
     <!-- Timeline Section -->
-    <section class="timeline-section">
-        <h2 class="process-title">Your Success Timeline</h2>
+    <section class="timeline-section" id="how-it-works">
+        <div class="section-header">
+            <div class="section-label">How It Works</div>
+            <h2 class="section-title">Your Success Timeline</h2>
+            <p class="section-subtitle">Designed around you. A proven process refined through hundreds of successful partnerships.</p>
+        </div>
         <div class="timeline-container">
             <div class="timeline-item">
                 <div class="timeline-icon">
@@ -1630,13 +1832,17 @@
         </div>
     </section>
 
-    <!-- Values Section -->
+    <!-- Why Us / Values Section -->
     <section class="values-section">
-        <h2 class="process-title">Built on transparency.</h2>
+        <div class="section-header">
+            <div class="section-label">Why Service 1</div>
+            <h2 class="section-title">Built on transparency.</h2>
+            <p class="section-subtitle">We're not another generic marketing agency. We're home service specialists who understand your business inside and out.</p>
+        </div>
         <div class="values-grid">
             <div class="value-item">
                 <div class="value-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
                         <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
                     </svg>
                 </div>
@@ -1645,7 +1851,7 @@
             </div>
             <div class="value-item">
                 <div class="value-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
                         <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
                     </svg>
                 </div>
@@ -1654,7 +1860,7 @@
             </div>
             <div class="value-item">
                 <div class="value-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                     </svg>
                 </div>
@@ -1663,7 +1869,7 @@
             </div>
             <div class="value-item">
                 <div class="value-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
                         <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
                     </svg>
                 </div>
@@ -1673,16 +1879,22 @@
         </div>
     </section>
 
-    <!-- Final CTA -->
+    <!-- CTA Section -->
     <section class="cta-section" id="contact">
         <div class="cta-inner">
             <div class="cta-label">Get Started Today</div>
             <h2>Ready to <span>grow?</span></h2>
-            <p>Join 500+ home service businesses already dominating their market. One call is all it takes.</p>
+            <p>Join 500+ home service businesses already dominating their market. One conversation is all it takes.</p>
             <form class="cta-form" action="#" method="POST">
-                <input type="text" name="company" placeholder="Company Name" required>
-                <input type="tel" name="phone" placeholder="Phone Number" required>
-                <button type="submit" class="cta-btn">Get Started</button>
+                <div class="form-group">
+                    <label class="form-label">Company Name</label>
+                    <input type="text" class="form-input" name="company" placeholder="Your Company LLC" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-input" name="phone" placeholder="(555) 123-4567" required>
+                </div>
+                <button type="submit" class="form-submit">Get Started</button>
             </form>
             <div class="cta-trust">
                 <div class="cta-trust-item">
@@ -1703,33 +1915,44 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-column">
-                <h3>Service 1</h3>
-                <p>We help home service businesses dominate their market with Google Ads, SEO, and conversion-focused websites.</p>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Service 1</h3>
+                    <p>We help home service businesses dominate their market with Google Ads, SEO, and conversion-focused websites.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Google Ads</a></li>
+                        <li><a href="#services">Website Design</a></li>
+                        <li><a href="#services">SEO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Get In Touch</h3>
+                    <ul class="footer-links">
+                        <li><a href="/cdn-cgi/l/email-protection#87efe2ebebe8c7f4e2f5f1eee4e2b6a9e4e8ea"><span class="__cf_email__" data-cfemail="f098959c9c9fb083958286999395c1de939f9d">[email&#160;protected]</span></a></li>
+                        <li><a href="tel:+1234567890">(123) 456-7890</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-column">
-                <h3>Services</h3>
-                <ul class="footer-links">
-                    <li><a href="#services">Google Ads</a></li>
-                    <li><a href="#services">Website Design</a></li>
-                    <li><a href="#services">SEO</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Company</h3>
-                <ul class="footer-links">
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Get In Touch</h3>
-                <ul class="footer-links">
-                    <li><a href="/cdn-cgi/l/email-protection#87efe2ebebe8c7f4e2f5f1eee4e2b6a9e4e8ea"><span class="__cf_email__" data-cfemail="f098959c9c9fb083958286999395c1de939f9d">[email&#160;protected]</span></a></li>
-                    <li><a href="tel:+1234567890">(123) 456-7890</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <div>&copy; 2025 Service 1. All rights reserved.</div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
-   
+    </footer>
+</body>
+</html>
