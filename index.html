@@ -531,93 +531,91 @@
 
         /* Founder Section */
         .founder-section {
-            background: white;
+            background: #fafafa;
             color: var(--color-text);
             padding: 80px 24px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .founder-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(48, 209, 88, 0.08) 0%, transparent 70%);
-            z-index: 0;
         }
 
         .founder-content {
-            max-width: 1100px;
+            max-width: 700px;
             margin: 0 auto;
+            background: white;
+            padding: 60px 56px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
             position: relative;
-            z-index: 1;
+        }
+
+        .founder-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-green), var(--color-green-dark));
         }
 
         .founder-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .founder-icon-wrapper {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 32px;
-            background: white;
-            border: 3px solid var(--color-green);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 32px rgba(48, 209, 88, 0.15);
-        }
-
-        .founder-icon-wrapper svg {
-            width: 60px;
-            height: 60px;
-            color: var(--color-green);
+            margin-bottom: 40px;
         }
 
         .founder-section h2 {
-            font-size: clamp(36px, 5vw, 56px);
+            font-size: 28px;
             font-weight: 600;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
             color: var(--color-text);
         }
 
         .founder-section h3 {
-            font-size: 24px;
-            color: var(--color-green);
-            margin-bottom: 48px;
+            font-size: 16px;
+            color: var(--color-text-secondary);
+            font-weight: 400;
+            margin-bottom: 0;
         }
 
         .founder-story {
-            max-width: 900px;
-            margin: 0 auto;
+            max-width: none;
+            margin: 0;
         }
 
         .founder-story p {
-            font-size: 18px;
-            line-height: 1.8;
+            font-size: 17px;
+            line-height: 1.9;
             color: var(--color-text-secondary);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .founder-story p:last-of-type {
             margin-bottom: 0;
         }
 
+        .founder-signature {
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .founder-signature-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-text);
+            font-style: italic;
+        }
+
+        .founder-signature-title {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            margin-top: 4px;
+        }
+
         .founder-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 48px;
-            margin-top: 60px;
-            padding-top: 60px;
-            border-top: 2px solid rgba(48, 209, 88, 0.2);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            gap: 32px;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid #e0e0e0;
         }
 
         .founder-stat {
@@ -625,17 +623,17 @@
         }
 
         .founder-stat-number {
-            font-size: 48px;
+            font-size: 32px;
             font-weight: 700;
             background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .founder-stat-label {
-            font-size: 14px;
+            font-size: 12px;
             color: var(--color-text-secondary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -984,7 +982,7 @@
         }
 
         .featured-testimonial .testimonial-metrics {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
         }
 
         /* CTA Section */
@@ -1312,10 +1310,6 @@
                 <blockquote>"We went from spending $15K/month on ads with barely any calls to getting 200+ real customer inquiries every month. Service 1 completely transformed our business. Their system is the real deal."</blockquote>
                 <div class="testimonial-metrics">
                     <div class="metric">
-                        <div class="metric-value">200+</div>
-                        <div class="metric-label">Leads/Month</div>
-                    </div>
-                    <div class="metric">
                         <div class="metric-value">580%</div>
                         <div class="metric-label">Return</div>
                     </div>
@@ -1340,12 +1334,12 @@
                 <blockquote>"Finally, a marketing agency that actually understands home services. They don't just run ads—they build a whole system that keeps growing with you. Our bookings doubled in 90 days."</blockquote>
                 <div class="testimonial-metrics">
                     <div class="metric">
-                        <div class="metric-value">145</div>
-                        <div class="metric-label">Leads/Month</div>
+                        <div class="metric-value">340%</div>
+                        <div class="metric-label">Return</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">2x</div>
-                        <div class="metric-label">More Bookings</div>
+                        <div class="metric-value">1 Yr</div>
+                        <div class="metric-label">Partnership</div>
                     </div>
                 </div>
             </div>
@@ -1364,12 +1358,12 @@
                 <blockquote>"We tried three agencies before Service 1. They're the only ones who delivered. Clear reporting, transparent pricing, and most importantly—results we can measure."</blockquote>
                 <div class="testimonial-metrics">
                     <div class="metric">
-                        <div class="metric-value">$180K</div>
-                        <div class="metric-label">Monthly Revenue</div>
-                    </div>
-                    <div class="metric">
                         <div class="metric-value">425%</div>
                         <div class="metric-label">Return</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">2 Yrs</div>
+                        <div class="metric-label">Partnership</div>
                     </div>
                 </div>
             </div>
@@ -1388,10 +1382,13 @@
                 <blockquote>"Best investment we've made in our business. The Slack communication is instant, the monthly calls are valuable, and the leads keep coming. Worth every penny."</blockquote>
                 <div class="testimonial-metrics">
                     <div class="metric">
-                        <div class="metric-value">87</div>
-                        <div class="metric-label">Leads/Month</div>
+                        <div class="metric-value">290%</div>
+                        <div class="metric-label">Return</div>
                     </div>
-                    
+                    <div class="metric">
+                        <div class="metric-value">8 Mo</div>
+                        <div class="metric-label">Partnership</div>
+                    </div>
                 </div>
             </div>
 
@@ -1409,12 +1406,12 @@
                 <blockquote>"Their Google Ads approach is light years ahead of what we were doing. We're now the top choice in our area and our competitors are scrambling to catch up."</blockquote>
                 <div class="testimonial-metrics">
                     <div class="metric">
-                        <div class="metric-value">#1</div>
-                        <div class="metric-label">In Their Area</div>
+                        <div class="metric-value">320%</div>
+                        <div class="metric-label">Return</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">320%</div>
-                        <div class="metric-label">Growth</div>
+                        <div class="metric-value">1.5 Yrs</div>
+                        <div class="metric-label">Partnership</div>
                     </div>
                 </div>
             </div>
@@ -1433,12 +1430,12 @@
                 <blockquote>"We were drowning in junk calls from our previous agency. Service 1 fixed who sees our ads and now every call is from a homeowner ready to book. Game changer."</blockquote>
                 <div class="testimonial-metrics">
                     <div class="metric">
-                        <div class="metric-value">92%</div>
-                        <div class="metric-label">Good Calls</div>
+                        <div class="metric-value">510%</div>
+                        <div class="metric-label">Return</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">156</div>
-                        <div class="metric-label">Leads/Month</div>
+                        <div class="metric-value">10 Mo</div>
+                        <div class="metric-label">Partnership</div>
                     </div>
                 </div>
             </div>
@@ -1457,12 +1454,12 @@
                 <blockquote>"We used to rely on word of mouth and yard signs. Service 1 got us showing up on Google and the phone hasn't stopped ringing since. Wish we'd done this years ago."</blockquote>
                 <div class="testimonial-metrics">
                     <div class="metric">
-                        <div class="metric-value">3x</div>
-                        <div class="metric-label">More Jobs</div>
+                        <div class="metric-value">380%</div>
+                        <div class="metric-label">Return</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">110</div>
-                        <div class="metric-label">Leads/Month</div>
+                        <div class="metric-value">4 Mo</div>
+                        <div class="metric-label">Partnership</div>
                     </div>
                 </div>
             </div>
@@ -1473,20 +1470,18 @@
     <section class="founder-section">
         <div class="founder-content">
             <div class="founder-header">
-                <div class="founder-icon-wrapper">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                        <circle cx="12" cy="7" r="4"/>
-                    </svg>
-                </div>
-                <h2>Built by a Team Who's Been There</h2>
-                <h3>From Moving Trucks to Marketing Mastery</h3>
+                <h2>A Letter from Our Founder</h2>
+                <h3>Why we started Service 1</h3>
             </div>
             <div class="founder-story">
                 <p>Before Service 1, I built a moving company from the ground up. Not with traditional marketing—with Google Ads.</p>
                 <p>While competitors spent thousands on billboards, I ran focused Google Ads that brought in real customers at a fraction of the cost. Within three years, we became the go-to mover in our market.</p>
                 <p>I sold that company for seven figures. But I realized something: most home service businesses were still struggling with the same outdated marketing I'd moved past years ago.</p>
                 <p>That's why I started Service 1. To give other home service companies the same advantage I had—online marketing that actually brings in more money than it costs.</p>
+            </div>
+            <div class="founder-signature">
+                <div class="founder-signature-name">— The Service 1 Team</div>
+                <div class="founder-signature-title">Founded by a home service business owner, for home service business owners.</div>
             </div>
             <div class="founder-stats">
                 <div class="founder-stat">
