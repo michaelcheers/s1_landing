@@ -465,6 +465,35 @@
             color: var(--color-steel);
         }
 
+        .service-features {
+            list-style: none;
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .service-features li {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-section:nth-child(even) .service-features li {
+            color: var(--color-steel);
+        }
+
+        .service-features li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--color-green);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
         /* Ad Mockup */
         .mockup {
             background: white;
@@ -1370,7 +1399,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div style="max-width: 900px; position: relative;">
+        <div style="max-width: 900px; margin: 0 auto; position: relative;">
             <div class="hero-badge">
                 <svg viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
@@ -1465,10 +1494,16 @@
     <section class="service-section" id="services">
         <div class="service-content">
             <div>
-                <div class="service-label">Paid Ads</div>
-                <h2 class="service-title">Your ad. Their search.</h2>
-                <p class="service-subtitle">Perfect timing, every time.</p>
-                <p class="service-description">Every dollar tracked. Every call from a real customer. We put your business in front of homeowners at the exact moment they're searching for your services.</p>
+                <div class="service-label">Performance Advertising</div>
+                <h2 class="service-title">Laser-Targeted Campaigns</h2>
+                <p class="service-subtitle">Engineered to convert.</p>
+                <p class="service-description">Laser-targeted Google and Meta campaigns engineered to convert your ideal customers. We manage $2M+ in annual ad spend and know exactly what works in home services.</p>
+                <ul class="service-features">
+                    <li>Google Local Services Ads optimization</li>
+                    <li>High-intent PPC campaigns</li>
+                    <li>Facebook &amp; Instagram lead generation</li>
+                    <li>Advanced audience targeting &amp; retargeting</li>
+                </ul>
             </div>
             <div>
                 <div class="mockup">
@@ -1514,10 +1549,16 @@
                 </div>
             </div>
             <div>
-                <div class="service-label">Websites</div>
-                <h2 class="service-title">Designed to book jobs.</h2>
-                <p class="service-subtitle">Built to grow your business.</p>
-                <p class="service-description">Every detail on your site is designed to get visitors to pick up the phone. We build websites based on what actually works, learned from managing millions in ad spend.</p>
+                <div class="service-label">Conversion-Optimized Websites</div>
+                <h2 class="service-title">Built to Convert</h2>
+                <p class="service-subtitle">Every element earns its place.</p>
+                <p class="service-description">Beautiful, fast-loading websites built to turn visitors into booked jobs. Every element is strategically designed to maximize conversions and reflect your premium brand.</p>
+                <ul class="service-features">
+                    <li>Mobile-first design &amp; development</li>
+                    <li>Integrated booking &amp; CRM systems</li>
+                    <li>Page speed optimization (90+ scores)</li>
+                    <li>A/B testing &amp; continuous improvement</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -1526,10 +1567,16 @@
     <section class="service-section">
         <div class="service-content">
             <div>
-                <div class="service-label">SEO</div>
-                <h2 class="service-title">Invisible to you.</h2>
-                <p class="service-subtitle">Unmissable to customers.</p>
-                <p class="service-description">When homeowners search for your services on Google, you show up. First. Every time. We don't just get you on the map. We make you the obvious choice.</p>
+                <div class="service-label">SEO &amp; Local Dominance</div>
+                <h2 class="service-title">Own Page One</h2>
+                <p class="service-subtitle">Long-term dominance, not quick fixes.</p>
+                <p class="service-description">Own page one for every high-value keyword in your market. Our SEO strategies are built for long-term dominance, not quick fixes that disappear in six months.</p>
+                <ul class="service-features">
+                    <li>Technical SEO &amp; site architecture</li>
+                    <li>Google Business Profile mastery</li>
+                    <li>Local citation building &amp; management</li>
+                    <li>Strategic content creation</li>
+                </ul>
             </div>
             <div>
                 <div class="browser-mockup" style="max-width: 600px;">
@@ -1570,49 +1617,26 @@
     <!-- Testimonials -->
     <section class="testimonials-section">
         <div class="section-header">
-            <div class="section-label">Client Results</div>
-            <h2 class="section-title">Real Results from Real Businesses</h2>
+            <div class="section-label">Client Feedback</div>
+            <h2 class="section-title">What Our Partners Say</h2>
         </div>
         <div class="testimonials-grid">
             <!-- Featured Testimonial -->
             <div class="testimonial-card featured-testimonial">
                 <div class="featured-badge">Featured Success Story</div>
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">MC</div>
+                    <div class="testimonial-avatar">MJ</div>
                     <div class="testimonial-author">
-                        <div class="testimonial-name">Mike Chen</div>
-                        <div class="testimonial-company">Precision HVAC Services</div>
-                        <div class="testimonial-role">Owner & Founder</div>
+                        <div class="testimonial-name">Michael Johnson</div>
+                        <div class="testimonial-company">Elite HVAC Solutions</div>
+                        <div class="testimonial-role">Owner</div>
                     </div>
                 </div>
                 <div class="stars">★★★★★</div>
-                <blockquote>"We went from spending $15K/month on ads with barely any calls to getting 200+ real customer inquiries every month. Service 1 completely transformed our business. Their system is the real deal."</blockquote>
+                <blockquote>"We tried three other agencies before Service 1. The difference is night and day. They actually understand HVAC business economics and built campaigns that generated profitable growth, not just cheap leads that never close."</blockquote>
                 <div class="testimonial-metrics">
                     <div class="metric">
                         <div class="metric-value">580%</div>
-                        <div class="metric-label">Return</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">6 Mo</div>
-                        <div class="metric-label">Partnership</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">SR</div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-name">Sarah Rodriguez</div>
-                        <div class="testimonial-company">Elite Moving Company</div>
-                        <div class="testimonial-role">Marketing Director</div>
-                    </div>
-                </div>
-                <div class="stars">★★★★★</div>
-                <blockquote>"Finally, a marketing agency that actually understands home services. They don't just run ads—they build a whole system that keeps growing with you. Our bookings doubled in 90 days."</blockquote>
-                <div class="testimonial-metrics">
-                    <div class="metric">
-                        <div class="metric-value">340%</div>
                         <div class="metric-label">Return</div>
                     </div>
                     <div class="metric">
@@ -1624,18 +1648,18 @@
 
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">JT</div>
+                    <div class="testimonial-avatar">SR</div>
                     <div class="testimonial-author">
-                        <div class="testimonial-name">James Thompson</div>
-                        <div class="testimonial-company">ProPlumb Solutions</div>
+                        <div class="testimonial-name">Sarah Rodriguez</div>
+                        <div class="testimonial-company">Precision Plumbing Co.</div>
                         <div class="testimonial-role">CEO</div>
                     </div>
                 </div>
                 <div class="stars">★★★★★</div>
-                <blockquote>"We tried three agencies before Service 1. They're the only ones who delivered. Clear reporting, transparent pricing, and most importantly—results we can measure."</blockquote>
+                <blockquote>"The ROI speaks for itself. We're spending $18K/month on ads and generating $90K+ in monthly revenue from their campaigns alone. Plus the SEO work has us dominating every major keyword in our market."</blockquote>
                 <div class="testimonial-metrics">
                     <div class="metric">
-                        <div class="metric-value">425%</div>
+                        <div class="metric-value">500%</div>
                         <div class="metric-label">Return</div>
                     </div>
                     <div class="metric">
@@ -1647,91 +1671,22 @@
 
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">LM</div>
+                    <div class="testimonial-avatar">DT</div>
                     <div class="testimonial-author">
-                        <div class="testimonial-name">Lisa Martinez</div>
-                        <div class="testimonial-company">Clean Sweep Services</div>
-                        <div class="testimonial-role">Owner</div>
+                        <div class="testimonial-name">David Thompson</div>
+                        <div class="testimonial-company">Premium Roofing Group</div>
+                        <div class="testimonial-role">Founder</div>
                     </div>
                 </div>
                 <div class="stars">★★★★★</div>
-                <blockquote>"Best investment we've made in our business. The Slack communication is instant, the monthly calls are valuable, and the leads keep coming. Worth every penny."</blockquote>
+                <blockquote>"Finally, an agency that doesn't treat us like just another client. They know our business model, understand our margins, and consistently deliver leads that actually turn into profitable jobs. Worth every penny."</blockquote>
                 <div class="testimonial-metrics">
                     <div class="metric">
-                        <div class="metric-value">290%</div>
-                        <div class="metric-label">Return</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">8 Mo</div>
-                        <div class="metric-label">Partnership</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">DK</div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-name">David Kim</div>
-                        <div class="testimonial-company">24/7 Emergency Plumbing</div>
-                        <div class="testimonial-role">Operations Manager</div>
-                    </div>
-                </div>
-                <div class="stars">★★★★★</div>
-                <blockquote>"Their Google Ads approach is light years ahead of what we were doing. We're now the top choice in our area and our competitors are scrambling to catch up."</blockquote>
-                <div class="testimonial-metrics">
-                    <div class="metric">
-                        <div class="metric-value">320%</div>
+                        <div class="metric-value">425%</div>
                         <div class="metric-label">Return</div>
                     </div>
                     <div class="metric">
                         <div class="metric-value">1.5 Yrs</div>
-                        <div class="metric-label">Partnership</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">AJ</div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-name">Amanda Johnson</div>
-                        <div class="testimonial-company">Royal Roofing Co.</div>
-                        <div class="testimonial-role">Marketing Lead</div>
-                    </div>
-                </div>
-                <div class="stars">★★★★★</div>
-                <blockquote>"We were drowning in junk calls from our previous agency. Service 1 fixed who sees our ads and now every call is from a homeowner ready to book. Game changer."</blockquote>
-                <div class="testimonial-metrics">
-                    <div class="metric">
-                        <div class="metric-value">510%</div>
-                        <div class="metric-label">Return</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">10 Mo</div>
-                        <div class="metric-label">Partnership</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">RP</div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-name">Robert Patel</div>
-                        <div class="testimonial-company">Greenscape Lawn Care</div>
-                        <div class="testimonial-role">Owner</div>
-                    </div>
-                </div>
-                <div class="stars">★★★★★</div>
-                <blockquote>"We used to rely on word of mouth and yard signs. Service 1 got us showing up on Google and the phone hasn't stopped ringing since. Wish we'd done this years ago."</blockquote>
-                <div class="testimonial-metrics">
-                    <div class="metric">
-                        <div class="metric-value">380%</div>
-                        <div class="metric-label">Return</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">4 Mo</div>
                         <div class="metric-label">Partnership</div>
                     </div>
                 </div>
@@ -1776,9 +1731,9 @@
     <!-- Timeline Section -->
     <section class="timeline-section" id="how-it-works">
         <div class="section-header">
-            <div class="section-label">How It Works</div>
-            <h2 class="section-title">Your Success Timeline</h2>
-            <p class="section-subtitle">Designed around you. A proven process refined through hundreds of successful partnerships.</p>
+            <div class="section-label">Our Process</div>
+            <h2 class="section-title">How We Transform Your Marketing</h2>
+            <p class="section-subtitle">A proven, systematic approach refined through hundreds of successful partnerships with home service businesses.</p>
         </div>
         <div class="timeline-container">
             <div class="timeline-item">
@@ -1788,9 +1743,9 @@
                     </svg>
                 </div>
                 <div class="timeline-content">
-                    <div class="timeline-week">Week 1</div>
-                    <h4>Strategy & Setup</h4>
-                    <p>We learn your business, your competition, and your area. Then we build a custom plan and set up everything to measure results.</p>
+                    <div class="timeline-week">Step 1</div>
+                    <h4>Discovery &amp; Strategy</h4>
+                    <p>We analyze your market position, competitive landscape, profit margins, and operational capacity. No cookie-cutter solutions. Everything is tailored to your specific business model and growth goals.</p>
                 </div>
             </div>
             <div class="timeline-item">
@@ -1800,9 +1755,9 @@
                     </svg>
                 </div>
                 <div class="timeline-content">
-                    <div class="timeline-week">Week 2</div>
-                    <h4>Campaign Launch</h4>
-                    <p>Your Google and Meta ads go live. Website improvements are made. Your phone starts ringing.</p>
+                    <div class="timeline-week">Step 2</div>
+                    <h4>Foundation Building</h4>
+                    <p>We implement conversion tracking, CRM integration, call tracking, and analytics infrastructure. You'll know exactly where every lead comes from and what it costs, down to the dollar.</p>
                 </div>
             </div>
             <div class="timeline-item">
@@ -1812,9 +1767,9 @@
                     </svg>
                 </div>
                 <div class="timeline-content">
-                    <div class="timeline-week">Week 3-4</div>
-                    <h4>Fine-Tuning</h4>
-                    <p>We study what's working, cut what isn't, and put more money behind the winners. You get more calls for less money.</p>
+                    <div class="timeline-week">Step 3</div>
+                    <h4>Campaign Launch</h4>
+                    <p>We launch comprehensive campaigns across Google, Facebook, Instagram, and other relevant channels. Within 14 days, qualified leads start flowing while we gather critical performance data.</p>
                 </div>
             </div>
             <div class="timeline-item">
@@ -1824,9 +1779,9 @@
                     </svg>
                 </div>
                 <div class="timeline-content">
-                    <div class="timeline-week">Month 2+</div>
-                    <h4>Grow & Lead</h4>
-                    <p>Steady stream of new customers. Predictable revenue. You're the top choice in your area. We keep fine-tuning for even better results.</p>
+                    <div class="timeline-week">Step 4</div>
+                    <h4>Optimization &amp; Scale</h4>
+                    <p>We obsessively test, refine, and optimize. Underperformers get cut. Winners get scaled. Your cost per acquisition drops while lead volume increases. This is where the magic happens.</p>
                 </div>
             </div>
         </div>
@@ -1836,8 +1791,8 @@
     <section class="values-section">
         <div class="section-header">
             <div class="section-label">Why Service 1</div>
-            <h2 class="section-title">Built on transparency.</h2>
-            <p class="section-subtitle">We're not another generic marketing agency. We're home service specialists who understand your business inside and out.</p>
+            <h2 class="section-title">Built Different. Built for Results.</h2>
+            <p class="section-subtitle">We're not another generic marketing agency. We're home service specialists who understand field operations, seasonal fluctuations, and what it takes to profitably scale service businesses.</p>
         </div>
         <div class="values-grid">
             <div class="value-item">
@@ -1846,26 +1801,8 @@
                         <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
                     </svg>
                 </div>
-                <h3>Direct Communication</h3>
-                <p>Slack channel. Real-time responses. You always know what we're doing.</p>
-            </div>
-            <div class="value-item">
-                <div class="value-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
-                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-                    </svg>
-                </div>
-                <h3>Anytime</h3>
-                <p>Available when you need us. Fast response times. Flexible scheduling.</p>
-            </div>
-            <div class="value-item">
-                <div class="value-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
-                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                    </svg>
-                </div>
-                <h3>Strategy Calls</h3>
-                <p>Monthly check-ins to review results, plan next steps, and adjust as needed.</p>
+                <h3>Home Services Experts</h3>
+                <p>We exclusively serve home service businesses. We know your customers, your sales cycles, and your operational challenges inside and out.</p>
             </div>
             <div class="value-item">
                 <div class="value-icon">
@@ -1873,8 +1810,26 @@
                         <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
                     </svg>
                 </div>
-                <h3>Clear Reporting</h3>
-                <p>Plain-English reports. How many calls you got. What each new customer cost. What you made back.</p>
+                <h3>Transparent Reporting</h3>
+                <p>Real-time dashboards showing leads, costs, conversion rates, and ROI. No smoke and mirrors. Just clear data you can use to make decisions.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                    </svg>
+                </div>
+                <h3>Direct Access</h3>
+                <p>Work directly with senior strategists, not account coordinators. Slack channel for real-time communication. Strategy calls whenever you need them.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                        <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+                    </svg>
+                </div>
+                <h3>Proven Systems</h3>
+                <p>Battle-tested frameworks that have scaled dozens of home service companies past 7 and 8 figures. We know what works because we've done it repeatedly.</p>
             </div>
         </div>
     </section>
@@ -1882,9 +1837,9 @@
     <!-- CTA Section -->
     <section class="cta-section" id="contact">
         <div class="cta-inner">
-            <div class="cta-label">Get Started Today</div>
-            <h2>Ready to <span>grow?</span></h2>
-            <p>Join 500+ home service businesses already dominating their market. One conversation is all it takes.</p>
+            <div class="cta-label">Ready to Scale?</div>
+            <h2>Ready to Scale Your <span>Business?</span></h2>
+            <p>Let's have a straightforward conversation about your goals and see if we're a good fit. No high-pressure sales tactics. Just honest dialogue about growing your business.</p>
             <form class="cta-form" action="#" method="POST">
                 <div class="form-group">
                     <label class="form-label">Company Name</label>
@@ -1919,29 +1874,31 @@
             <div class="footer-grid">
                 <div class="footer-column">
                     <h3>Service 1</h3>
-                    <p>We help home service businesses dominate their market with Google Ads, SEO, and conversion-focused websites.</p>
+                    <p>Elite marketing solutions exclusively for established home service businesses ready to dominate their markets and scale profitably.</p>
                 </div>
                 <div class="footer-column">
                     <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#services">Google Ads</a></li>
-                        <li><a href="#services">Website Design</a></li>
-                        <li><a href="#services">SEO</a></li>
+                        <li><a href="#services">Performance Advertising</a></li>
+                        <li><a href="#services">Website Development</a></li>
+                        <li><a href="#services">SEO &amp; Local Dominance</a></li>
+                        <li><a href="#services">CRM Integration</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Company</h3>
                     <ul class="footer-links">
                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#how-it-works">Our Process</a></li>
+                        <li><a href="#contact">Partner With Us</a></li>
+                        <li><a href="#contact">Book a Call</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Get In Touch</h3>
+                    <h3>Contact</h3>
                     <ul class="footer-links">
-                        <li><a href="/cdn-cgi/l/email-protection#87efe2ebebe8c7f4e2f5f1eee4e2b6a9e4e8ea"><span class="__cf_email__" data-cfemail="f098959c9c9fb083958286999395c1de939f9d">[email&#160;protected]</span></a></li>
-                        <li><a href="tel:+1234567890">(123) 456-7890</a></li>
+                        <li><a href="mailto:hello@service1.co">hello@service1.co</a></li>
+                        <li><a href="tel:+18885551234">(888) 555-1234</a></li>
                     </ul>
                 </div>
             </div>
